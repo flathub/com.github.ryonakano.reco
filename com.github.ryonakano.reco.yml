@@ -19,8 +19,8 @@ modules:
       - '-Ddoc=disabled'
     sources:
       - type: archive
-        url: https://gstreamer.freedesktop.org/src/gst-libav/gst-libav-1.18.5.tar.xz
-        sha256: 822e008a910e9dd13aedbdd8dc63fedef4040c0ee2e927bab3112e9de693a548
+        url: https://gstreamer.freedesktop.org/src/gst-libav/gst-libav-1.18.6.tar.xz
+        sha256: e4e50dcd5a29441ae34de60d2221057e8064ed824bb6ca4dc0fd9ee88fbe9b81
 
   - name: granite
     buildsystem: meson
@@ -35,7 +35,7 @@ modules:
     sources:
       - type: git
         url: https://github.com/ryonakano/reco.git
-        tag: '3.3.0'
-        commit: af793eaed8935e526f9d9d57e281089348bc23b6
+        tag: '3.3.1'
+        commit: fdd3e6a2ec7da0bb3636a7b779f6fd54ffbbc035
       - type: patch
         path: appdata-screenshots.patch
