@@ -1,11 +1,10 @@
 app-id: com.github.ryonakano.reco
 runtime: org.gnome.Platform
-runtime-version: '42'
+runtime-version: '43'
 sdk: org.gnome.Sdk
 command: com.github.ryonakano.reco
 finish-args:
   - '--device=all'
-  - '--filesystem=home'
   - '--share=ipc'
   - '--socket=wayland'
   - '--socket=fallback-x11'
@@ -35,7 +34,8 @@ modules:
     sources:
       - type: git
         url: https://github.com/ryonakano/reco.git
-        tag: '3.3.1'
-        commit: fdd3e6a2ec7da0bb3636a7b779f6fd54ffbbc035
+        # tag: '3.3.1'
+        # commit: fdd3e6a2ec7da0bb3636a7b779f6fd54ffbbc035
+        branch: 'main'
       - type: patch
         path: appdata-screenshots.patch
