@@ -26,8 +26,8 @@ modules:
     sources:
       - type: git
         url: https://github.com/elementary/granite.git
-        tag: '6.2.0'
-        commit: 4ab145c28bb3db6372fe519e8bd79c645edfcda3
+        tag: '7.0.0'
+        commit: 41020886ee56f0a489b977a389da10a6ba0cd131
 
   - name: reco
     buildsystem: meson
