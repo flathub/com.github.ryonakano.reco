@@ -34,7 +34,7 @@ modules:
     sources:
       - type: git
         url: https://github.com/ryonakano/reco.git
-        # tag: '3.3.1'
-        commit: f3b185a695de6eb3d02335ac9e1e544e66e09248
+        tag: '4.0.0'
+        commit: 20c2cc64ab243fe47a600c66e2377b22e2c89d6a
       - type: patch
         path: appdata-screenshots.patch
