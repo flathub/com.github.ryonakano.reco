@@ -5,7 +5,6 @@ sdk: org.gnome.Sdk
 command: com.github.ryonakano.reco
 finish-args:
   - '--device=all'
-  - '--filesystem=home'
   - '--share=ipc'
   - '--socket=wayland'
   - '--socket=fallback-x11'
@@ -27,15 +26,15 @@ modules:
     sources:
       - type: git
         url: https://github.com/elementary/granite.git
-        tag: '6.2.0'
-        commit: 4ab145c28bb3db6372fe519e8bd79c645edfcda3
+        tag: '7.0.0'
+        commit: 41020886ee56f0a489b977a389da10a6ba0cd131
 
   - name: reco
     buildsystem: meson
     sources:
       - type: git
         url: https://github.com/ryonakano/reco.git
-        tag: '3.3.1'
-        commit: fdd3e6a2ec7da0bb3636a7b779f6fd54ffbbc035
+        tag: '4.0.0'
+        commit: 20c2cc64ab243fe47a600c66e2377b22e2c89d6a
       - type: patch
         path: appdata-screenshots.patch
