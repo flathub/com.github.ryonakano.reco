@@ -54,6 +54,6 @@ modules:
       #        sha256: a874ba06cf3461809e8675bdf05a7621a41c296bdc01a1ce46a76b73e79f26a4
       - type: git
         url: https://github.com/ryonakano/reco.git
-        commit: 6303188d6011791771baf063d9d00b051781294c
+        commit: 43a101225744989e6808cef2da8e65fb6c94be91
       - type: patch
         path: 0001-Metainfo-Use-screenshots-taken-on-GNOME.patch
