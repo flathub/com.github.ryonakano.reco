@@ -5,6 +5,8 @@ sdk: org.gnome.Sdk
 command: com.github.ryonakano.reco
 finish-args:
   - '--device=all'
+  # FIXME: A temporary workaround of https://github.com/ryonakano/reco/issues/175 while investigating it
+  - '--filesystem=home'
   - '--share=ipc'
   - '--socket=wayland'
   - '--socket=fallback-x11'
