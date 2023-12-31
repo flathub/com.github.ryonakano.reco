@@ -36,45 +36,14 @@ modules:
         url: https://gstreamer.freedesktop.org/src/gst-libav/gst-libav-1.22.5.tar.xz
         sha256: 8583f0c1f4fcb01eed11fa1e3c21126543a8bd739ed4fc1db31f756a5ab01d9a
 
-  - name: sassc
-    cleanup:
-      - '*'
-    buildsystem: autotools
-    sources:
-      - type: archive
-        url: https://github.com/sass/sassc/archive/refs/tags/3.6.2.tar.gz
-        sha256: 608dc9002b45a91d11ed59e352469ecc05e4f58fc1259fc9a9f5b8f0f8348a03
-      - type: script
-        dest-filename: autogen.sh
-        commands:
-          - autoreconf -si
-    modules:
-      - name: libsass
-        cleanup:
-          - '*'
-        buildsystem: autotools
-        sources:
-          - type: archive
-            url: https://github.com/sass/libsass/archive/refs/tags/3.6.5.tar.gz
-            sha256: 89d8f2c46ae2b1b826b58ce7dde966a176bac41975b82e84ad46b01a55080582
-          - type: script
-            dest-filename: autogen.sh
-            commands:
-              - autoreconf -si
-
-  - name: stylesheet
-    buildsystem: meson
-    sources:
-      - type: archive
-        url: https://github.com/elementary/stylesheet/archive/refs/tags/7.3.0.tar.gz
-        sha256: 2fa0428a53ff79a67e518a5883ecfe4e0a7944ad79b3ae070567aad1ea2f459b
-
   - name: granite
     buildsystem: meson
     sources:
       - type: archive
         url: https://github.com/elementary/granite/archive/refs/tags/7.4.0.tar.gz
         sha256: 594fe6670940bf2e5d094c73071025d77efab9c5b147a6f64134fe10d370e40e
+      - type: patch
+        path: 0002-meson-Disable-styles.patch
 
   - name: ryokucha
     buildsystem: meson
