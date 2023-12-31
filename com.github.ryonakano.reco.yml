@@ -5,6 +5,12 @@ sdk: org.gnome.Sdk
 command: com.github.ryonakano.reco
 finish-args:
   - '--device=all'
+  # A workaround for the issue of xdg-desktop-portal-gnome that the selected folder in the file chooser is not set as writable.
+  # See:
+  # https://gitlab.gnome.org/GNOME/xdg-desktop-portal-gnome/-/issues/41
+  # https://github.com/ryonakano/reco/issues/175#issuecomment-1848263345
+  # TODO: Remove when famous distribution versions that uses GNOME < 44 reach EOL
+  - '--filesystem=home'
   - '--share=ipc'
   - '--socket=wayland'
   - '--socket=fallback-x11'
