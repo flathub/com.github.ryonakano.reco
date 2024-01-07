@@ -21,10 +21,9 @@ modules:
   - name: live-chart
     buildsystem: meson
     sources:
-      # TODO: Replace with tarball when new release is published
-      - type: git
-        url: https://github.com/lcallarec/live-chart.git
-        commit: d364df43bd8336bf7ed461c57a28e97efa7115b1
+      - type: archive
+        url: https://github.com/lcallarec/live-chart/archive/refs/tags/1.10.0.tar.gz
+        sha256: 3f54c7569cc2a4711b5689038055aefc4321636f3e6dd4945e4be204bc9d4843
 
   - name: gst-libav
     buildsystem: meson
@@ -49,8 +48,8 @@ modules:
     buildsystem: meson
     sources:
       - type: archive
-        url: https://github.com/ryonakano/ryokucha/archive/refs/tags/0.1.0.tar.gz
-        sha256: 89b9492b33498f46c4f4dd79ef3cbf526069a5422439766382ffdcd0ba1da159
+        url: https://github.com/ryonakano/ryokucha/archive/refs/tags/0.2.0.tar.gz
+        sha256: 40c038798cafd6f8f2de00b19a27b89042197a301b256b2afa8da35fcc21a2f6
 
   - name: reco
     buildsystem: meson
