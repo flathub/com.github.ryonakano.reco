@@ -41,6 +41,10 @@ modules:
       - type: archive
         url: https://github.com/elementary/granite/archive/refs/tags/7.4.0.tar.gz
         sha256: 594fe6670940bf2e5d094c73071025d77efab9c5b147a6f64134fe10d370e40e
+      # Granite bundles stylesheets for some widgets and that requires addional dependencies, sassc.
+      # However, these stylesheets don't seem to be applied unless the host system uses elementary stylesheet.
+      # We don't expect elementary OS users install the app from Flathub, so disable building stylesheet
+      # to lessen number of dependencies and package size.
       - type: patch
         path: 0002-meson-Disable-styles.patch
 
