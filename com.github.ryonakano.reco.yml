@@ -37,6 +37,10 @@ modules:
 
   - name: granite
     buildsystem: meson
+    cleanup:
+      - '/share/applications'
+      - '/share/metainfo'
+      - '/share/icons'
     sources:
       - type: archive
         url: https://github.com/elementary/granite/archive/refs/tags/7.4.0.tar.gz
