@@ -1,6 +1,6 @@
-From c37ea714e5ded5d757c7e76d08fbbe36beb85e7b Mon Sep 17 00:00:00 2001
+From 4d2b92e3754a52b00a01d61db3ce3dac8ce65b4a Mon Sep 17 00:00:00 2001
 From: Ryo Nakano <ryonakaknock3@gmail.com>
-Date: Fri, 1 Dec 2023 22:54:40 +0900
+Date: Sat, 13 Apr 2024 10:45:34 +0900
 Subject: [PATCH] Metainfo: Use screenshots taken on GNOME
 
 ---
@@ -8,30 +8,30 @@ Subject: [PATCH] Metainfo: Use screenshots taken on GNOME
  1 file changed, 3 insertions(+), 3 deletions(-)
 
 diff --git a/data/reco.metainfo.xml.in b/data/reco.metainfo.xml.in
-index 54626b8..27b6aba 100644
+index 08d3b41..69f7139 100644
 --- a/data/reco.metainfo.xml.in
 +++ b/data/reco.metainfo.xml.in
-@@ -26,17 +26,17 @@
+@@ -27,17 +27,17 @@
    <screenshots>
      <screenshot type="default">
        <caption>Welcome view; perform recording configuration</caption>
--      <image>https://raw.githubusercontent.com/ryonakano/reco/5.0.0/data/screenshots/pantheon/welcome-init-light.png</image>
-+      <image>https://raw.githubusercontent.com/ryonakano/reco/5.0.0/data/screenshots/gnome/welcome-init-light.png</image>
+-      <image>https://raw.githubusercontent.com/ryonakano/reco/5.0.1/data/screenshots/pantheon/welcome-init-light.png</image>
++      <image>https://raw.githubusercontent.com/ryonakano/reco/5.0.1/data/screenshots/gnome/welcome-init-light.png</image>
      </screenshot>
  
      <screenshot>
        <caption>Recording view</caption>
--      <image>https://raw.githubusercontent.com/ryonakano/reco/5.0.0/data/screenshots/pantheon/recording-light.png</image>
-+      <image>https://raw.githubusercontent.com/ryonakano/reco/5.0.0/data/screenshots/gnome/recording-light.png</image>
+-      <image>https://raw.githubusercontent.com/ryonakano/reco/5.0.1/data/screenshots/pantheon/recording-light.png</image>
++      <image>https://raw.githubusercontent.com/ryonakano/reco/5.0.1/data/screenshots/gnome/recording-light.png</image>
      </screenshot>
  
      <screenshot>
        <caption>An indication that recording is successfully finished</caption>
--      <image>https://raw.githubusercontent.com/ryonakano/reco/5.0.0/data/screenshots/pantheon/welcome-success-light.png</image>
-+      <image>https://raw.githubusercontent.com/ryonakano/reco/5.0.0/data/screenshots/gnome/welcome-success-light.png</image>
+-      <image>https://raw.githubusercontent.com/ryonakano/reco/5.0.1/data/screenshots/pantheon/welcome-success-light.png</image>
++      <image>https://raw.githubusercontent.com/ryonakano/reco/5.0.1/data/screenshots/gnome/welcome-success-light.png</image>
      </screenshot>
    </screenshots>
  
 -- 
-2.34.1
+2.44.0
 
