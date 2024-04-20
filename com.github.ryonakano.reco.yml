@@ -1,11 +1,15 @@
 app-id: com.github.ryonakano.reco
 runtime: org.gnome.Platform
-runtime-version: '45'
+runtime-version: '46'
 sdk: org.gnome.Sdk
 command: com.github.ryonakano.reco
 finish-args:
   - '--device=all'
-  # FIXME: A temporary workaround of https://github.com/ryonakano/reco/issues/175 while investigating it
+  # A workaround for the issue of xdg-desktop-portal-gnome that the selected folder in the file chooser is not set as writable.
+  # See:
+  # https://gitlab.gnome.org/GNOME/xdg-desktop-portal-gnome/-/issues/41
+  # https://github.com/ryonakano/reco/issues/175#issuecomment-1848263345
+  # TODO: Remove when famous distribution versions that uses GNOME < 44 reach EOL
   - '--filesystem=home'
   - '--share=ipc'
   - '--socket=wayland'
@@ -17,10 +21,9 @@ modules:
   - name: live-chart
     buildsystem: meson
     sources:
-      # TODO: Replace with tarball when new release is published
-      - type: git
-        url: https://github.com/lcallarec/live-chart.git
-        commit: d364df43bd8336bf7ed461c57a28e97efa7115b1
+      - type: archive
+        url: https://github.com/lcallarec/live-chart/archive/refs/tags/1.10.0.tar.gz
+        sha256: 3f54c7569cc2a4711b5689038055aefc4321636f3e6dd4945e4be204bc9d4843
 
   - name: gst-libav
     buildsystem: meson
@@ -34,17 +37,27 @@ modules:
 
   - name: granite
     buildsystem: meson
+    cleanup:
+      - '/share/applications'
+      - '/share/metainfo'
+      - '/share/icons'
     sources:
       - type: archive
-        url: https://github.com/elementary/granite/archive/refs/tags/7.2.0.tar.gz
-        sha256: 474b1ce3275e4065f48cc11b8bedaa6d976af0fb9b73c795300659d06ef3beef
+        url: https://github.com/elementary/granite/archive/refs/tags/7.4.0.tar.gz
+        sha256: 594fe6670940bf2e5d094c73071025d77efab9c5b147a6f64134fe10d370e40e
+      - type: patch
+        # Granite bundles stylesheets for some widgets and that requires addional dependencies, sassc.
+        # However, these stylesheets don't seem to be applied unless the host system uses elementary stylesheet.
+        # We don't expect elementary OS users install the app from Flathub, so disable building stylesheet
+        # to lessen number of dependencies and package size.
+        path: 0001-meson-Disable-styles.patch
 
   - name: ryokucha
     buildsystem: meson
     sources:
       - type: archive
-        url: https://github.com/ryonakano/ryokucha/archive/refs/tags/0.1.0.tar.gz
-        sha256: 89b9492b33498f46c4f4dd79ef3cbf526069a5422439766382ffdcd0ba1da159
+        url: https://github.com/ryonakano/ryokucha/archive/refs/tags/0.2.0.tar.gz
+        sha256: 40c038798cafd6f8f2de00b19a27b89042197a301b256b2afa8da35fcc21a2f6
 
   - name: reco
     buildsystem: meson
@@ -52,7 +65,7 @@ modules:
       - '-Duse_submodule=false'
     sources:
       - type: archive
-        url: https://github.com/ryonakano/reco/archive/refs/tags/5.0.0.tar.gz
-        sha256: 87842098a4fe01effb0d374f689e025e91b8e906eedcaed4413694db73cd3595
+        url: https://github.com/ryonakano/reco/archive/refs/tags/5.0.1.tar.gz
+        sha256: 7b8639146d0740798bd844d0b9f005c03acd37f8f87e63f09b8f71270084c664
       - type: patch
         path: 0001-Metainfo-Use-screenshots-taken-on-GNOME.patch
