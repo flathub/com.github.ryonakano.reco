@@ -64,11 +64,8 @@ modules:
     config_opts:
       - '-Duse_submodule=false'
     sources:
-      #- type: archive
-      #  url: https://github.com/ryonakano/reco/archive/refs/tags/5.0.0.tar.gz
-      #  sha256: 87842098a4fe01effb0d374f689e025e91b8e906eedcaed4413694db73cd3595
-      - type: git
-        url: https://github.com/ryonakano/reco.git
-        commit: 4f3ef8603416037d03db6472a399706c55fb4ef4
+      - type: archive
+        url: https://github.com/ryonakano/reco/archive/refs/tags/5.0.1.tar.gz
+        sha256: 7b8639146d0740798bd844d0b9f005c03acd37f8f87e63f09b8f71270084c664
       - type: patch
         path: 0001-Metainfo-Use-screenshots-taken-on-GNOME.patch
