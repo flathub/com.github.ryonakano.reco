@@ -27,7 +27,7 @@ modules:
 
   - name: gst-libav
     buildsystem: meson
-    config_opts:
+    config-opts:
       - '-Ddoc=disabled'
     sources:
       - type: archive
@@ -37,35 +37,32 @@ modules:
 
   - name: granite
     buildsystem: meson
+    config-opts:
+      - '-Ddemo=false'
     cleanup:
-      - '/share/applications'
-      - '/share/metainfo'
       - '/share/icons'
+      - '/share/metainfo'
     sources:
       - type: archive
-        url: https://github.com/elementary/granite/archive/refs/tags/7.4.0.tar.gz
-        sha256: 594fe6670940bf2e5d094c73071025d77efab9c5b147a6f64134fe10d370e40e
+        url: https://github.com/elementary/granite/archive/refs/tags/7.5.0.tar.gz
+        sha256: 9439733169c07cfc658144ceef90bebac5f024ffda4bbb65e8c1ab68e5580908
       - type: patch
-        # Granite bundles stylesheets for some widgets and that requires addional dependencies, sassc.
-        # However, these stylesheets don't seem to be applied unless the host system uses elementary stylesheet.
-        # We don't expect elementary OS users install the app from Flathub, so disable building stylesheet
-        # to lessen number of dependencies and package size.
         path: 0001-meson-Disable-styles.patch
 
   - name: ryokucha
     buildsystem: meson
     sources:
       - type: archive
-        url: https://github.com/ryonakano/ryokucha/archive/refs/tags/0.2.0.tar.gz
-        sha256: 40c038798cafd6f8f2de00b19a27b89042197a301b256b2afa8da35fcc21a2f6
+        url: https://github.com/ryonakano/ryokucha/archive/refs/tags/0.3.1.tar.gz
+        sha256: 503754d1a0a9012e5779f20ef1e9bb7db099eb9243bc98985b2136e4e1b0031e
 
   - name: reco
     buildsystem: meson
-    config_opts:
+    config-opts:
       - '-Duse_submodule=false'
     sources:
       - type: archive
-        url: https://github.com/ryonakano/reco/archive/refs/tags/5.0.1.tar.gz
-        sha256: 7b8639146d0740798bd844d0b9f005c03acd37f8f87e63f09b8f71270084c664
+        url: https://github.com/ryonakano/reco/archive/refs/tags/5.0.2.tar.gz
+        sha256: c63206e107e571ebfdda2975ac1aea9a5c1b078ac225d5d1fa293e99f8079667
       - type: patch
         path: 0001-Metainfo-Use-screenshots-taken-on-GNOME.patch
