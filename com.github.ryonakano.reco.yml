@@ -32,8 +32,8 @@ modules:
     sources:
       - type: archive
         # we need to use the same version with gstreamer included in the sdk
-        url: https://gstreamer.freedesktop.org/src/gst-libav/gst-libav-1.22.5.tar.xz
-        sha256: 8583f0c1f4fcb01eed11fa1e3c21126543a8bd739ed4fc1db31f756a5ab01d9a
+        url: https://gstreamer.freedesktop.org/src/gst-libav/gst-libav-1.24.7.tar.xz
+        sha256: c3e4179ba183c2d3101edf87ff70dd07e728c766a5fee34e6ecded76ca5802df
 
   - name: granite
     buildsystem: meson
