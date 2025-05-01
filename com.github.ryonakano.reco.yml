@@ -1,68 +1,74 @@
-app-id: com.github.ryonakano.reco
+id: com.github.ryonakano.reco
 runtime: org.gnome.Platform
-runtime-version: '47'
+runtime-version: '48'
 sdk: org.gnome.Sdk
 command: com.github.ryonakano.reco
 finish-args:
-  - '--device=all'
   # A workaround for the issue of xdg-desktop-portal-gnome that the selected folder in the file chooser is not set as writable.
   # See:
   # https://gitlab.gnome.org/GNOME/xdg-desktop-portal-gnome/-/issues/41
   # https://github.com/ryonakano/reco/issues/175#issuecomment-1848263345
   # TODO: Remove when famous distribution versions that uses GNOME < 44 reach EOL
-  - '--filesystem=home'
-  - '--share=ipc'
-  - '--socket=wayland'
-  - '--socket=fallback-x11'
-  - '--socket=pulseaudio'
-  - '--env=GST_PLUGIN_PATH_1_0=/app/lib/gstreamer-1.0'
-  - '--metadata=X-DConf=migrate-path=/com/github/ryonakano/reco/'
+  - --filesystem=home
+
+  - --share=ipc
+  - --socket=wayland
+  - --socket=fallback-x11
+  - --socket=pulseaudio
+  - --env=GST_PLUGIN_PATH_1_0=/app/lib/gstreamer-1.0
+  - --metadata=X-DConf=migrate-path=/com/github/ryonakano/reco/
 modules:
   - name: live-chart
     buildsystem: meson
     sources:
-      - type: archive
-        url: https://github.com/lcallarec/live-chart/archive/refs/tags/1.10.0.tar.gz
-        sha256: 3f54c7569cc2a4711b5689038055aefc4321636f3e6dd4945e4be204bc9d4843
+      - type: git
+        url: https://github.com/lcallarec/live-chart.git
+        tag: 1.10.0
+        commit: 41e5803e61162d80a06974eebc67a511cc22e83d
+        x-checker-data:
+          type: git
+          tag-pattern: '^([\d.]+)$'
 
   - name: gst-libav
     buildsystem: meson
     config-opts:
-      - '-Ddoc=disabled'
+      - -Ddoc=disabled
     sources:
       - type: archive
         # we need to use the same version with gstreamer included in the sdk
-        url: https://gstreamer.freedesktop.org/src/gst-libav/gst-libav-1.24.7.tar.xz
-        sha256: c3e4179ba183c2d3101edf87ff70dd07e728c766a5fee34e6ecded76ca5802df
-
-  - name: granite
-    buildsystem: meson
-    config-opts:
-      - '-Ddemo=false'
-    cleanup:
-      - '/share/icons'
-      - '/share/metainfo'
-    sources:
-      - type: archive
-        url: https://github.com/elementary/granite/archive/refs/tags/7.5.0.tar.gz
-        sha256: 9439733169c07cfc658144ceef90bebac5f024ffda4bbb65e8c1ab68e5580908
-      - type: patch
-        path: 0001-meson-Disable-styles.patch
+        url: https://gstreamer.freedesktop.org/src/gst-libav/gst-libav-1.24.12.tar.xz
+        sha256: ef72c1c70a17b3c0bb283d16d09aba496d3401c927dcf5392a8a7866d9336379
 
   - name: ryokucha
     buildsystem: meson
     sources:
-      - type: archive
-        url: https://github.com/ryonakano/ryokucha/archive/refs/tags/0.3.1.tar.gz
-        sha256: 503754d1a0a9012e5779f20ef1e9bb7db099eb9243bc98985b2136e4e1b0031e
+      - type: git
+        url: https://github.com/ryonakano/ryokucha.git
+        tag: 0.3.1
+        commit: 781f43d5c539bfe77c72fbaa32fc589a02b03c40
+        x-checker-data:
+          type: git
+          tag-pattern: '^([\d.]+)$'
+
+  - name: blueprint-compiler
+    buildsystem: meson
+    cleanup:
+      - '*'
+    sources:
+      - type: git
+        url: https://gitlab.gnome.org/jwestman/blueprint-compiler.git
+        tag: v0.16.0
+        commit: 04ef0944db56ab01307a29aaa7303df6067cb3c0
+        x-checker-data:
+          type: git
+          tag-pattern: ^v([\d.]+)$
 
   - name: reco
     buildsystem: meson
     config-opts:
-      - '-Duse_submodule=false'
+      - -Duse_submodule=false
     sources:
-      - type: archive
-        url: https://github.com/ryonakano/reco/archive/refs/tags/5.0.2.tar.gz
-        sha256: c63206e107e571ebfdda2975ac1aea9a5c1b078ac225d5d1fa293e99f8079667
-      - type: patch
-        path: 0001-Metainfo-Use-screenshots-taken-on-GNOME.patch
+      - type: git
+        url: https://github.com/ryonakano/reco.git
+        tag: 5.1.0
+        commit: 1a32128de29c44f43edfb67be46bd1bd97afff1e
