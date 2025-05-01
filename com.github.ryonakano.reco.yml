@@ -70,5 +70,5 @@ modules:
     sources:
       - type: git
         url: https://github.com/ryonakano/reco.git
-        #tag: 5.1.0
-        commit: 6b7d8c257d70280368bfbd8bde8dc5bc628e6883
+        tag: 5.1.0
+        commit: 1a32128de29c44f43edfb67be46bd1bd97afff1e
