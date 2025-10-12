@@ -63,6 +63,5 @@ modules:
     sources:
       - type: git
         url: https://github.com/ryonakano/reco.git
-        #tag: 5.1.1
-         #commit: TODO
-        commit: 9df3432b71dafffb6ad8058f7dbfd02c4b88ee2e
+        tag: 5.1.1
+        commit: 6dbb59c78c48923730f9e8909fb7f54e8b431fad
