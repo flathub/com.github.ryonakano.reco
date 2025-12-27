@@ -46,16 +46,6 @@ modules:
         tag: 0.3.1
         commit: 781f43d5c539bfe77c72fbaa32fc589a02b03c40
 
-  - name: blueprint-compiler
-    buildsystem: meson
-    cleanup:
-      - '*'
-    sources:
-      - type: git
-        url: https://gitlab.gnome.org/GNOME/blueprint-compiler.git
-        tag: 0.18.0
-        commit: 07c9c9df9cd1b6b4454ecba21ee58211e9144a4b
-
   - name: reco
     buildsystem: meson
     config-opts:
