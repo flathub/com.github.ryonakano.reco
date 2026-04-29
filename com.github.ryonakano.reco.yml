@@ -16,7 +16,6 @@ finish-args:
   - --socket=fallback-x11
   - --device=dri
   - --socket=pulseaudio
-  - --env=GST_PLUGIN_PATH_1_0=/app/lib/gstreamer-1.0
 cleanup:
   - /include
   - /lib/pkgconfig
@@ -30,16 +29,6 @@ modules:
       - type: archive
         url: https://github.com/lcallarec/live-chart/archive/1.10.0.tar.gz
         sha256: 3f54c7569cc2a4711b5689038055aefc4321636f3e6dd4945e4be204bc9d4843
-
-  - name: gst-libav
-    buildsystem: meson
-    config-opts:
-      - -Ddoc=disabled
-    sources:
-      - type: archive
-        # we need to use the same version with gstreamer included in the sdk
-        url: https://gstreamer.freedesktop.org/src/gst-libav/gst-libav-1.26.10.tar.xz
-        sha256: c8c2fd29cc063a6d26c314cd1a0a3a3060c8a029981b9520fab52c4206d11611
 
   - name: ryokucha
     buildsystem: meson
