@@ -1,6 +1,6 @@
 id: com.github.ryonakano.reco
 runtime: org.gnome.Platform
-runtime-version: '50'
+runtime-version: '51'
 sdk: org.gnome.Sdk
 command: com.github.ryonakano.reco
 finish-args:
@@ -44,5 +44,5 @@ modules:
     sources:
       - type: git
         url: https://github.com/ryonakano/reco.git
-        tag: 5.2.1
-        commit: f618ef9065411c697922f7b0983b6ec593407517
+        tag: 5.2.1-rc.1
+        commit: 3ba44cb1d7b8a2f84a3ae378712f2db5f95d647a
